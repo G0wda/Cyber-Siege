@@ -1,5 +1,8 @@
 {
   "name": "ctf-site",
+  "engines": {
+    "node": "22.x"
+  },
   "version": "0.0.1",
   "private": true,
   "type": "module",
