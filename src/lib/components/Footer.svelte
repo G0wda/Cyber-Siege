@@ -74,7 +74,7 @@
         &copy; 2026 Cyber Siege CTF. All rights reserved.
       </p>
       <p class="font-mono text-xl text-white/40  tracking-wider">
-        // CRAFTED IN THE VOID · POWERED BY <span class="text-neon-cyan">Cynex</span>
+        // CRAFTED IN THE VOID · POWERED BY <span class="text-neon-cyan">CYNEX</span>
       </p>
     </div>
   </div>

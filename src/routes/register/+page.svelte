@@ -415,7 +415,7 @@
 
                 <!-- Instructions -->
                 <div class="flex-1 space-y-3">
-                  <div class="font-display font-bold text-sm text-star-white">How to Pay</div>
+                  <div class="font-display font-bold text-sx text-star-white">How to Pay</div>
                   <div class="space-y-2">
                     {#each [
                       ['01', 'Scan the QR code with any UPI app (GPay, PhonePe, Paytm, etc.)'],
@@ -425,7 +425,7 @@
                     ] as [n, step]}
                       <div class="flex items-start gap-3">
                         <span class="font-mono text-[9px] text-green-400/60 shrink-0 mt-0.5 w-4">{n}</span>
-                        <span class="font-body text-xs text-white/50 leading-relaxed">{step}</span>
+                        <span class="font-body text-xm text-white/50 leading-relaxed">{step}</span>
                       </div>
                     {/each}
                   </div>
@@ -433,7 +433,7 @@
                     <svg class="w-3 h-3 text-green-400/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                     </svg>
-                    <span class="font-mono text-[9px] text-white/30 tracking-wide">Payments verified before event access</span>
+                    <span class="font-mono font-bold text-[14px] text-white/80 tracking-wide">Payments verified before event access</span>
                   </div>
                 </div>
               </div>
@@ -441,7 +441,7 @@
 
             <!-- Screenshot upload -->
             <div data-error={errors.paymentScreenshot ? true : undefined}>
-              <label class="font-mono text-[10px] text-white/40 tracking-widest mb-3 block" for="paymentScreenshot">
+              <label class="font-mono text-[15px] text-white/40 tracking-widest mb-3 block" for="paymentScreenshot">
                 › PAYMENT_SCREENSHOT <span class="text-neon-violet">*</span>
                 <span class="text-white/20 ml-2">JPEG / PNG / WebP · max 5MB</span>
               </label>
@@ -501,7 +501,7 @@
 
           <!-- Disclaimer + Submit -->
           <div class="pt-8 border-t border-white/[0.06] mt-8">
-            <p class="font-mono text-[10px] text-white/20 leading-relaxed mb-5">
+            <p class="font-mono text-[14px] text-white/20 leading-relaxed mb-5">
               // By submitting, you confirm that payment has been made and all information provided is accurate.
               // All registrations are subject to verification.
             </p>
