@@ -66,7 +66,6 @@
     paymentFile     = null;
     paymentPreview  = null;
     paymentFileName = '';
-    // reset the file input
     const input = document.getElementById('paymentScreenshot');
     if (input) input.value = '';
   }
@@ -100,7 +99,6 @@
     serverError = '';
     if (!validate()) {
       await tick();
-      // scroll to first error
       const el = document.querySelector('[data-error]');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
@@ -144,10 +142,8 @@
   <title>Register — Cyber Siege CTF</title>
 </svelte:head>
 
-<!-- ── Page wrapper ─────────────────────────────────────────────────────────── -->
 <section class="min-h-screen pt-24 pb-20 relative overflow-hidden">
 
-  <!-- Ambient background -->
   <div class="absolute inset-0 z-0 pointer-events-none"
     style="background: radial-gradient(ellipse at 30% 20%, #1a053355 0%, transparent 55%),
                        radial-gradient(ellipse at 75% 80%, #00111a44 0%, transparent 55%);">
@@ -157,13 +153,11 @@
                              linear-gradient(90deg, #00f5ff 1px, transparent 1px);
            background-size: 48px 48px;">
   </div>
-  <!-- Glow orbs -->
   <div class="absolute top-32 left-8 w-40 h-40 rounded-full blur-3xl opacity-20 animate-float pointer-events-none"
     style="background:#00f5ff; animation-delay:0s;"></div>
   <div class="absolute bottom-32 right-8 w-52 h-52 rounded-full blur-3xl opacity-15 animate-float pointer-events-none"
     style="background:#bf00ff; animation-delay:2.5s;"></div>
 
-  <!-- ── Success card ──────────────────────────────────────────────────────── -->
   {#if submitted}
     <div class="relative z-10 max-w-xl mx-auto px-4 pt-8">
       <div class="glass-card neon-border text-center p-12">
@@ -172,8 +166,6 @@
         <div class="w-16 h-px mx-auto mb-6" style="background:linear-gradient(90deg,transparent,#00f5ff,transparent)"></div>
         <p class="font-body text-white/60 mb-1">Welcome to Cyber Siege CTF, <span class="text-neon-cyan">{leaderName}</span>.</p>
         <p class="font-body text-white/40 text-sm mb-8">Team <span class="text-neon-violet">{teamName}</span> is locked in.</p>
-
-        <!-- Terminal summary -->
         <div class="font-mono text-xs text-left glass-card p-4 mb-8 space-y-1">
           <div>$ registration_confirmed</div>
           <div><span class="text-neon-cyan">›</span> team:      <span class="text-white/70">{teamName}</span></div>
@@ -184,16 +176,13 @@
           <div><span class="text-neon-cyan">›</span> payment:   <span class="text-green-400">✓ verified</span></div>
           <div class="pt-1"><span class="text-neon-violet">›</span> status: <span class="text-neon-cyan">ACTIVE ▊</span></div>
         </div>
-
         <a href="/" class="btn-primary rounded-sm text-xs inline-block">← Return to Base</a>
       </div>
     </div>
 
-  <!-- ── Registration form ─────────────────────────────────────────────────── -->
   {:else}
     <div class="relative z-10 max-w-2xl mx-auto px-4">
 
-      <!-- Page header -->
       <div class="text-center mb-10">
         <div class="font-mono text-xs text-neon-cyan tracking-widest mb-3">// SECURE_REGISTRATION_PORTAL</div>
         <h1 class="font-display font-bold text-4xl md:text-5xl text-gradient mb-3">Join Cyber Siege CTF</h1>
@@ -201,11 +190,9 @@
         <p class="font-body text-white/45 text-sm">Fill in your squad details to secure your spot in the arena.</p>
       </div>
 
-      <!-- Form card -->
       <div class="glass-card p-6 md:p-10"
         style="border:1px solid rgba(0,245,255,0.14); box-shadow:0 0 80px rgba(0,245,255,0.06), 0 0 120px rgba(191,0,255,0.04);">
 
-        <!-- Terminal titlebar -->
         <div class="flex items-center gap-2 mb-8 pb-5 border-b border-white/[0.07]">
           <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
           <div class="w-3 h-3 rounded-full bg-yellow-400/70"></div>
@@ -217,7 +204,6 @@
           </div>
         </div>
 
-        <!-- Server error banner -->
         {#if serverError}
           <div class="mb-6 px-4 py-3 rounded-lg font-mono text-xs text-red-400 border border-red-500/30 bg-red-500/10 flex items-start gap-2">
             <span class="mt-0.5">⚠</span>
@@ -227,7 +213,7 @@
 
         <form on:submit|preventDefault={handleSubmit} novalidate class="space-y-0">
 
-          <!-- ── SECTION 1: Team Info ──────────────────────────────────────── -->
+          <!-- SECTION 1: Team Info -->
           <div class="mb-2">
             <div class="flex items-center gap-3 mb-5">
               <div class="w-5 h-5 rounded flex items-center justify-center text-[10px] font-display font-bold text-neon-cyan"
@@ -236,7 +222,6 @@
               <div class="flex-1 h-px" style="background:linear-gradient(90deg,rgba(0,245,255,0.2),transparent)"></div>
             </div>
 
-            <!-- Team Name -->
             <div class="mb-5" data-error={errors.teamName ? true : undefined}>
               <label class="font-mono text-[10px] text-white/40 tracking-widest mb-2 block" for="teamName">
                 › TEAM_NAME <span class="text-neon-violet">*</span>
@@ -245,13 +230,10 @@
                 placeholder="e.g. Void Runners"
                 class="input-field {errors.teamName ? 'border-red-500/50' : ''}"/>
               {#if errors.teamName}
-                <p class="font-mono text-[10px] text-red-400/80 mt-1.5 flex items-center gap-1">
-                  <span>✕</span> {errors.teamName}
-                </p>
+                <p class="font-mono text-[10px] text-red-400/80 mt-1.5 flex items-center gap-1"><span>✕</span> {errors.teamName}</p>
               {/if}
             </div>
 
-            <!-- Two-col: Leader Name + Email -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
               <div data-error={errors.leaderName ? true : undefined}>
                 <label class="font-mono text-[10px] text-white/40 tracking-widest mb-2 block" for="leaderName">
@@ -279,7 +261,7 @@
             </div>
           </div>
 
-          <!-- ── SECTION 2: Teammates ─────────────────────────────────────── -->
+          <!-- SECTION 2: Teammates -->
           <div class="mb-2 pt-4">
             <div class="flex items-center gap-3 mb-5">
               <div class="w-5 h-5 rounded flex items-center justify-center text-[10px] font-display font-bold text-neon-violet"
@@ -288,34 +270,25 @@
               <div class="flex-1 h-px" style="background:linear-gradient(90deg,rgba(191,0,255,0.2),transparent)"></div>
             </div>
 
-            <!-- Number of teammates -->
             <div class="mb-5" data-error={errors.numberOfTeammates ? true : undefined}>
               <label class="font-mono text-[10px] text-white/40 tracking-widest mb-2 block" for="numTeammates">
                 › NUMBER_OF_TEAMMATES <span class="text-neon-violet">*</span>
                 <span class="text-white/20 ml-2">(0 – {MAX_TEAMMATES})</span>
               </label>
               <div class="flex items-center gap-3">
-                <!-- Decrement -->
                 <button type="button"
                   class="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg text-neon-violet transition-all duration-200 hover:scale-110 active:scale-95 shrink-0"
                   style="border:1px solid rgba(191,0,255,0.3); background:rgba(191,0,255,0.07);"
-                  on:click={() => numberOfTeammates = Math.max(0, (parseInt(numberOfTeammates)||0) - 1)}>
-                  −
-                </button>
+                  on:click={() => numberOfTeammates = Math.max(0, (parseInt(numberOfTeammates)||0) - 1)}>−</button>
                 <input id="numTeammates" type="number"
-                  bind:value={numberOfTeammates}
-                  min="0" max={MAX_TEAMMATES}
+                  bind:value={numberOfTeammates} min="0" max={MAX_TEAMMATES}
                   class="input-field text-center font-display font-bold text-2xl text-neon-violet w-24 shrink-0
                          {errors.numberOfTeammates ? 'border-red-500/50' : ''}"
-                  style="border-color: rgba(191,0,255,0.3); box-shadow:0 0 10px rgba(191,0,255,0.1);"
-                />
-                <!-- Increment -->
+                  style="border-color: rgba(191,0,255,0.3); box-shadow:0 0 10px rgba(191,0,255,0.1);"/>
                 <button type="button"
                   class="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg text-neon-violet transition-all duration-200 hover:scale-110 active:scale-95 shrink-0"
                   style="border:1px solid rgba(191,0,255,0.3); background:rgba(191,0,255,0.07);"
-                  on:click={() => numberOfTeammates = Math.min(MAX_TEAMMATES, (parseInt(numberOfTeammates)||0) + 1)}>
-                  +
-                </button>
+                  on:click={() => numberOfTeammates = Math.min(MAX_TEAMMATES, (parseInt(numberOfTeammates)||0) + 1)}>+</button>
                 {#if parseInt(numberOfTeammates) > 0}
                   <span class="font-mono text-xs text-white/30 tracking-wide">
                     {parseInt(numberOfTeammates)} operative{parseInt(numberOfTeammates) !== 1 ? 's' : ''} in your squad
@@ -329,10 +302,8 @@
               {/if}
             </div>
 
-            <!-- Dynamic teammate name inputs -->
             {#if teammateNames.length > 0}
-              <div class="space-y-3 pl-4"
-                style="border-left: 2px solid rgba(191,0,255,0.15);">
+              <div class="space-y-3 pl-4" style="border-left: 2px solid rgba(191,0,255,0.15);">
                 {#each teammateNames as _, i}
                   <div data-error={errors[`teammate_${i}`] ? true : undefined}>
                     <label class="font-mono text-[10px] text-white/30 tracking-widest mb-1.5 block" for="teammate_{i}">
@@ -354,7 +325,7 @@
             {/if}
           </div>
 
-          <!-- ── SECTION 3: Institution ────────────────────────────────────── -->
+          <!-- SECTION 3: Institution -->
           <div class="mb-2 pt-6">
             <div class="flex items-center gap-3 mb-5">
               <div class="w-5 h-5 rounded flex items-center justify-center text-[10px] font-display font-bold"
@@ -389,7 +360,7 @@
             </div>
           </div>
 
-          <!-- ── SECTION 4: Payment ────────────────────────────────────────── -->
+          <!-- SECTION 4: Payment -->
           <div class="pt-6">
             <div class="flex items-center gap-3 mb-5">
               <div class="w-5 h-5 rounded flex items-center justify-center text-[10px] font-display font-bold text-green-400"
@@ -398,47 +369,57 @@
               <div class="flex-1 h-px" style="background:linear-gradient(90deg,rgba(74,222,128,0.2),transparent)"></div>
             </div>
 
-            <!-- ── QR Code placeholder ──────────────────────────────────────── -->
+            <!-- ── Entry fee notice ─────────────────────────────────────────── -->
+            <div class="flex items-center justify-between px-4 py-3 rounded-xl mb-5"
+              style="background:rgba(74,222,128,0.06); border:1px solid rgba(74,222,128,0.18);">
+              <div class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-green-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+                <span class="font-body text-sm text-white/70">Entry Fee</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-display font-bold text-lg text-green-400">₹200</span>
+                <span class="font-mono text-[15px] text-white/35 tracking-wide">per person</span>
+              </div>
+            </div>
+
+            <!-- ── QR Code ─────────────────────────────────────────────────── -->
             <div class="rounded-2xl overflow-hidden mb-6"
               style="border:1px solid rgba(74,222,128,0.2); background:rgba(74,222,128,0.03);">
 
-              <!-- Header bar -->
               <div class="flex items-center justify-between px-4 py-2.5"
                 style="background:rgba(74,222,128,0.07); border-bottom:1px solid rgba(74,222,128,0.12);">
                 <div class="flex items-center gap-2">
                   <div class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
                   <span class="font-mono text-[10px] text-green-400 tracking-widest">SCAN_TO_PAY</span>
                 </div>
-                <span class="font-mono text-[9px] text-white/25 tracking-wider">ENTRY FEE · ₹XXX</span>
+                <span class="font-mono text-[9px] text-white/25 tracking-wider">₹200 × members in team</span>
               </div>
 
               <div class="flex flex-col sm:flex-row items-center gap-6 p-6">
 
-                <!-- QR box — replace src with your actual QR image -->
-               <div class="relative shrink-0 group">
-                <div class="w-64 h-64 rounded-xl flex items-center justify-center overflow-hidden relative"
-                  style="border:2px solid rgba(74,222,128,0.4); background: white; box-shadow:0 0 24px rgba(74,222,128,0.15);">
-
-                  <img src="./assets/payment.jpeg" 
-                      alt="Payment QR" 
-                      class="w-full h-full object-cover p-0" />
-
-                  <div class="absolute top-1.5 left-1.5 w-6 h-6 border-t-4 border-l-4 rounded-tl border-green-500"></div>
-                  <div class="absolute top-1.5 right-1.5 w-6 h-6 border-t-4 border-r-4 rounded-tr border-green-500"></div>
-                  <div class="absolute bottom-1.5 left-1.5 w-6 h-6 border-b-4 border-l-4 rounded-bl border-green-500"></div>
-                  <div class="absolute bottom-1.5 right-1.5 w-6 h-6 border-b-4 border-r-4 rounded-br border-green-500"></div>
-                  
-                  <div class="absolute inset-x-0 h-[3px] bg-green-400 shadow-[0_0_15px_#4ade80] animate-scan-slow opacity-80 z-10"></div>
+                <!-- QR image -->
+                <div class="relative shrink-0">
+                  <div class="w-64 h-64 rounded-xl flex items-center justify-center overflow-hidden relative"
+                    style="border:2px solid rgba(74,222,128,0.4); background: white; box-shadow:0 0 24px rgba(74,222,128,0.15);">
+                    <img src="./assets/payment.jpeg" alt="Payment QR" class="w-full h-full object-cover p-0" />
+                    <div class="absolute top-1.5 left-1.5 w-6 h-6 border-t-4 border-l-4 rounded-tl border-green-500"></div>
+                    <div class="absolute top-1.5 right-1.5 w-6 h-6 border-t-4 border-r-4 rounded-tr border-green-500"></div>
+                    <div class="absolute bottom-1.5 left-1.5 w-6 h-6 border-b-4 border-l-4 rounded-bl border-green-500"></div>
+                    <div class="absolute bottom-1.5 right-1.5 w-6 h-6 border-b-4 border-r-4 rounded-br border-green-500"></div>
+                    <div class="absolute inset-x-0 h-[3px] bg-green-400 shadow-[0_0_15px_#4ade80] animate-scan-slow opacity-80 z-10"></div>
+                  </div>
                 </div>
-              </div>
 
-                <!-- Payment instructions -->
+                <!-- Instructions -->
                 <div class="flex-1 space-y-3">
                   <div class="font-display font-bold text-sm text-star-white">How to Pay</div>
                   <div class="space-y-2">
                     {#each [
                       ['01', 'Scan the QR code with any UPI app (GPay, PhonePe, Paytm, etc.)'],
-                      ['02', 'Pay the entry fee and note your transaction ID'],
+                      ['02', 'Pay ₹200 per team member and note your transaction ID'],
                       ['03', 'Take a screenshot of the payment confirmation'],
                       ['04', 'Upload the screenshot below to complete registration'],
                     ] as [n, step]}
@@ -449,21 +430,22 @@
                     {/each}
                   </div>
                   <div class="flex items-center gap-2 pt-1">
-                    <svg class="w-3 h-3 text-green-400/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <svg class="w-3 h-3 text-green-400/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
                     <span class="font-mono text-[9px] text-white/30 tracking-wide">Payments verified before event access</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- ── Screenshot upload ──────────────────────────────────────────── -->
+            <!-- Screenshot upload -->
             <div data-error={errors.paymentScreenshot ? true : undefined}>
               <label class="font-mono text-[10px] text-white/40 tracking-widest mb-3 block" for="paymentScreenshot">
                 › PAYMENT_SCREENSHOT <span class="text-neon-violet">*</span>
                 <span class="text-white/20 ml-2">JPEG / PNG / WebP · max 5MB</span>
               </label>
 
-              <!-- Drop zone / file input -->
               {#if !paymentPreview}
                 <label for="paymentScreenshot"
                   class="flex flex-col items-center justify-center gap-3 w-full rounded-xl py-10 px-6 cursor-pointer transition-all duration-300
@@ -481,12 +463,10 @@
                     on:change={handleFileChange}/>
                 </label>
               {:else}
-                <!-- Preview -->
                 <div class="rounded-xl overflow-hidden relative group"
                   style="border:1px solid rgba(74,222,128,0.3); box-shadow:0 0 20px rgba(74,222,128,0.08);">
                   <img src={paymentPreview} alt="Payment screenshot preview"
                     class="w-full max-h-56 object-contain bg-black/40"/>
-                  <!-- Overlay on hover -->
                   <div class="absolute inset-0 flex items-center justify-center gap-3
                               opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                     style="background:rgba(0,0,0,0.65);">
@@ -503,7 +483,6 @@
                       class="hidden"
                       on:change={handleFileChange}/>
                   </div>
-                  <!-- File info bar -->
                   <div class="flex items-center gap-2 px-3 py-2 border-t border-white/5">
                     <div class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
                     <span class="font-mono text-[10px] text-white/40 truncate">{paymentFileName}</span>
@@ -520,7 +499,7 @@
             </div>
           </div>
 
-          <!-- ── Disclaimer + Submit ────────────────────────────────────────── -->
+          <!-- Disclaimer + Submit -->
           <div class="pt-8 border-t border-white/[0.06] mt-8">
             <p class="font-mono text-[10px] text-white/20 leading-relaxed mb-5">
               // By submitting, you confirm that payment has been made and all information provided is accurate.
@@ -544,27 +523,23 @@
         </form>
       </div>
 
-      <!-- Back link -->
       <div class="text-center mt-6">
-        <a href="/"
-          class="font-mono text-xs text-white/25 hover:text-neon-cyan transition-colors tracking-wider">
+        <a href="/" class="font-mono text-xs text-white/25 hover:text-neon-cyan transition-colors tracking-wider">
           ← RETURN_TO_HOME
         </a>
       </div>
     </div>
   {/if}
 </section>
+
 <style>
-  /* ... your existing styles ... */
-
   @keyframes scan-slow {
-    0% { top: 0%; opacity: 0; }
-    10% { opacity: 1; }
-    50% { top: 100%; opacity: 1; }
-    90% { opacity: 1; }
-    100% { top: 0%; opacity: 0; }
+    0%   { top: 0%;   opacity: 0; }
+    10%  { opacity: 1; }
+    50%  { top: 100%; opacity: 1; }
+    90%  { opacity: 1; }
+    100% { top: 0%;   opacity: 0; }
   }
-
   .animate-scan-slow {
     position: absolute;
     animation: scan-slow 6s ease-in-out infinite;
