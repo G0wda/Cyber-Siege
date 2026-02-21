@@ -18,7 +18,7 @@
   let submitted   = false;
   let loading     = false;
 
-  const API_URL = import.meta.env.VITE_API_URL || 'https://cyber-siege-backend.vercel.app/';
+  const API_URL = import.meta.env.VITE_API_URL || 'https://cyber-siege-backend.vercel.app';
   const MAX_TEAMMATES = 10;
 
   // ── Reactively resize teammate name array ────────────────────────────────────
