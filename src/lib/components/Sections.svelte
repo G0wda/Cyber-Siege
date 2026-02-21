@@ -93,8 +93,8 @@
 
   // ── Placeholder sections (leaderboard + sponsors only) ──────────────────────
   const otherSections = [
-    { id: 'section-two',   num: '03', label: 'LEADERBOARD', title: 'Section Two',   icon: '🌌', color: '#bf00ff' },
-    { id: 'section-three', num: '04', label: 'SPONSORS',    title: 'Section Three', icon: '🔐', color: '#0066ff' },
+    // { id: 'section-two',   num: '03', label: 'LEADERBOARD', title: 'Section Two',   icon: '🌌', color: '#bf00ff' },
+    { id: 'section-three', num: '03', label: 'SPONSORS',    title: 'Section Three', icon: '🔐', color: '#0066ff' },
   ];
 
   // ── Resources data ───────────────────────────────────────────────────────────
@@ -191,7 +191,7 @@
 <!-- ══════════════════════════════════════════════════════════════════════════
      SECTION ONE — CHALLENGES (fully implemented)
 ══════════════════════════════════════════════════════════════════════════ -->
-<section id="section-one" class="relative py-24 md:py-36 overflow-hidden">
+<section id="challenges" class="relative py-24 md:py-36 overflow-hidden">
 
   <!-- Atmospheric background -->
   <div class="absolute inset-0 z-0 pointer-events-none" style="
@@ -209,7 +209,7 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section label -->
-    <div class="font-mono text-xs text-neon-cyan tracking-widest mb-10">// 02_CHALLENGES</div>
+    <div class="font-mono text-xl text-neon-cyan tracking-widest mb-10">// 02_CHALLENGES</div>
 
     <!-- Header -->
     <div class="text-center mb-16">
@@ -342,7 +342,7 @@
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="font-mono text-xs tracking-widest mb-4" style="color: {sec.color}">// {sec.num}_{sec.label}</div>
+      <div class="font-mono text-xl tracking-widest mb-4" style="color: {sec.color}">// {sec.num}_{sec.label}</div>
 
       <div class="glass-card p-12 md:p-20 text-center" style="border: 1px solid {sec.color}33; box-shadow: 0 0 40px {sec.color}11;">
         <div class="text-6xl mb-6 animate-float" style="animation-delay: {i * 0.5}s">{sec.icon}</div>
@@ -398,7 +398,7 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section label -->
-    <div class="font-mono text-xs tracking-widest mb-10" style="color:#ff006e;">// 05_RESOURCES</div>
+    <div class="font-mono text-xl tracking-widest mb-10" style="color:#ff006e;">// 04_RESOURCES</div>
 
     <!-- Header -->
     <div class="text-center mb-20">
@@ -416,7 +416,7 @@
     <!-- ── TOOLS GRID ──────────────────────────────────────────────────────── -->
     <div class="mb-20">
       <div class="flex items-center gap-4 mb-8">
-        <div class="font-mono text-xs tracking-[4px] text-white/40">// ESSENTIAL_TOOLS</div>
+        <div class="font-mono text-xl tracking-[4px] text-white/40">// ESSENTIAL_TOOLS</div>
         <div class="flex-1 h-px" style="background:linear-gradient(90deg,rgba(255,0,110,0.3),transparent);"></div>
       </div>
 
@@ -462,7 +462,7 @@
     <!-- ── LEARNING RESOURCES ──────────────────────────────────────────────── -->
     <div class="mb-20">
       <div class="flex items-center gap-4 mb-8">
-        <div class="font-mono text-xs tracking-[4px] text-white/40">// LEARNING_RESOURCES</div>
+        <div class="font-mono text-xl tracking-[4px] text-white/40">// LEARNING_RESOURCES</div>
         <div class="flex-1 h-px" style="background:linear-gradient(90deg,rgba(255,0,110,0.3),transparent);"></div>
       </div>
 
@@ -509,7 +509,7 @@
     <!-- ── QUICK TIPS ──────────────────────────────────────────────────────── -->
     <div>
       <div class="flex items-center gap-4 mb-8">
-        <div class="font-mono text-xs tracking-[4px] text-white/40">// CTF_PLAYBOOK</div>
+        <div class="font-mono text-xl tracking-[4px] text-white/40">// CTF_PLAYBOOK</div>
         <div class="flex-1 h-px" style="background:linear-gradient(90deg,rgba(255,0,110,0.3),transparent);"></div>
       </div>
 
@@ -579,7 +579,7 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Header -->
-    <div class="font-mono text-xs tracking-widest mb-10" style="color:#0066ff;">// 06_RULES_AND_GUIDELINES</div>
+    <div class="font-mono text-xl tracking-widest mb-10" style="color:#0066ff;">// 05_RULES_AND_GUIDELINES</div>
     <div class="text-center mb-16">
       <h2 class="font-display font-black leading-none mb-3">
         <span class="text-5xl md:text-6xl lg:text-7xl" style="background:linear-gradient(135deg,#0066ff,#00f5ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">RULES &</span>
@@ -602,7 +602,7 @@
             style="background:rgba(0,102,255,0.1); border:1px solid rgba(0,102,255,0.25);">⚖️</div>
           <div>
             <div class="font-mono text-[9px] tracking-[4px] mb-0.5" style="color:#0066ff;">SECTION_01</div>
-            <h3 class="font-display font-bold text-sm text-star-white">General Conduct</h3>
+            <h3 class="font-display font-bold text-sl text-star-white">General Conduct</h3>
           </div>
         </div>
         <ul class="space-y-3">
@@ -616,7 +616,7 @@
           ] as rule}
             <li class="flex items-start gap-3">
               <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background:#0066ff; box-shadow:0 0 6px #0066ff;"></span>
-              <span class="font-body text-sm text-white/55 leading-relaxed">{rule}</span>
+              <span class="font-body text-sl text-white/55 leading-relaxed">{rule}</span>
             </li>
           {/each}
         </ul>
@@ -629,7 +629,7 @@
             style="background:rgba(0,245,255,0.1); border:1px solid rgba(0,245,255,0.25);">🏁</div>
           <div>
             <div class="font-mono text-[9px] tracking-[4px] mb-0.5" style="color:#00f5ff;">SECTION_02</div>
-            <h3 class="font-display font-bold text-sm text-star-white">Competition Rules</h3>
+            <h3 class="font-display font-bold text-sl text-star-white">Competition Rules</h3>
           </div>
         </div>
         <ul class="space-y-3">
@@ -643,7 +643,7 @@
           ] as rule}
             <li class="flex items-start gap-3">
               <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background:#00f5ff; box-shadow:0 0 6px #00f5ff;"></span>
-              <span class="font-body text-sm text-white/55 leading-relaxed">{rule}</span>
+              <span class="font-body text-sl text-white/55 leading-relaxed">{rule}</span>
             </li>
           {/each}
         </ul>
@@ -656,7 +656,7 @@
             style="background:rgba(255,51,102,0.1); border:1px solid rgba(255,51,102,0.25);">🚫</div>
           <div>
             <div class="font-mono text-[9px] tracking-[4px] mb-0.5" style="color:#ff3366;">SECTION_03</div>
-            <h3 class="font-display font-bold text-sm text-star-white">Prohibited Actions</h3>
+            <h3 class="font-display font-bold text-sl text-star-white">Prohibited Actions</h3>
           </div>
         </div>
         <ul class="space-y-3">
@@ -670,7 +670,7 @@
           ] as rule}
             <li class="flex items-start gap-3">
               <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background:#ff3366; box-shadow:0 0 6px #ff3366;"></span>
-              <span class="font-body text-sm text-white/55 leading-relaxed">{rule}</span>
+              <span class="font-body text-sl text-white/55 leading-relaxed">{rule}</span>
             </li>
           {/each}
         </ul>
@@ -683,7 +683,7 @@
             style="background:rgba(191,0,255,0.1); border:1px solid rgba(191,0,255,0.25);">🏆</div>
           <div>
             <div class="font-mono text-[9px] tracking-[4px] mb-0.5" style="color:#bf00ff;">SECTION_04</div>
-            <h3 class="font-display font-bold text-sm text-star-white">Scoring & Prizes</h3>
+            <h3 class="font-display font-bold text-sl text-star-white">Scoring & Prizes</h3>
           </div>
         </div>
         <ul class="space-y-3">
@@ -697,7 +697,7 @@
           ] as rule}
             <li class="flex items-start gap-3">
               <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background:#bf00ff; box-shadow:0 0 6px #bf00ff;"></span>
-              <span class="font-body text-sm text-white/55 leading-relaxed">{rule}</span>
+              <span class="font-body text-sl text-white/55 leading-relaxed">{rule}</span>
             </li>
           {/each}
         </ul>
@@ -711,13 +711,13 @@
       <div class="flex items-center gap-3">
         <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm shrink-0"
           style="background:rgba(0,102,255,0.12); border:1px solid rgba(0,102,255,0.25);">📋</div>
-        <p class="font-body text-sm text-white/55 leading-relaxed">
+        <p class="font-body text-sl text-white/55 leading-relaxed">
           By registering for Cyber Siege CTF, you confirm that you have read, understood,
           and agree to abide by all of the above rules and guidelines.
         </p>
       </div>
       <a href="/register"
-        class="shrink-0 px-5 py-2.5 rounded-lg font-mono text-xs tracking-widest transition-all duration-300"
+        class="shrink-0 px-5 py-2.5 rounded-lg font-mono text-xl tracking-widest transition-all duration-300"
         style="background:rgba(0,102,255,0.12); border:1px solid rgba(0,102,255,0.3); color:#0066ff;"
         on:mouseenter={e => { e.currentTarget.style.background = 'rgba(0,102,255,0.22)'; }}
         on:mouseleave={e => { e.currentTarget.style.background = 'rgba(0,102,255,0.12)'; }}>
@@ -744,7 +744,7 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Header -->
-    <div class="font-mono text-xs tracking-widest mb-10" style="color:#ff006e;">// 07_CONTACT_DETAILS</div>
+    <div class="font-mono text-xl tracking-widest mb-10" style="color:#ff006e;">// 06_CONTACT_DETAILS</div>
     <div class="text-center mb-16">
       <h2 class="font-display font-black leading-none mb-3">
         <span class="text-5xl md:text-6xl lg:text-7xl" style="background:linear-gradient(135deg,#ff006e,#bf00ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">CONTACT</span>
@@ -765,12 +765,12 @@
         style="border:1px solid rgba(255,0,110,0.18);">
         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-4"
           style="background:rgba(255,0,110,0.1); border:1px solid rgba(255,0,110,0.25);">📧</div>
-        <div class="font-mono text-[9px] tracking-[4px] mb-1" style="color:#ff006e;">PRIMARY_CONTACT</div>
+        <div class="font-mono text-[14px] tracking-[4px] mb-1" style="color:#ff006e;">PRIMARY_CONTACT</div>
         <h3 class="font-display font-bold text-sm text-star-white mb-3">Email Us</h3>
-        <div class="font-mono text-xs px-3 py-2.5 rounded-lg"
+        <div class="font-mono text-xl px-3 py-2.5 rounded-lg"
           style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.35);">
           <!-- ↓ REPLACE WITH REAL EMAIL -->
-          contact@cybersiegectf.com
+          cynex.ctf@gmail.com
         </div>
         <p class="font-body text-xs text-white/35 mt-3 leading-relaxed">
           For registration issues, payment queries, and general inquiries.
@@ -782,12 +782,12 @@
         style="border:1px solid rgba(160,255,0,0.18);">
         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-4"
           style="background:rgba(160,255,0,0.08); border:1px solid rgba(160,255,0,0.22);">📱</div>
-        <div class="font-mono text-[9px] tracking-[4px] mb-1" style="color:#a0ff00;">WHATSAPP_SUPPORT</div>
-        <h3 class="font-display font-bold text-sm text-star-white mb-3">WhatsApp / Phone</h3>
-        <div class="font-mono text-xs px-3 py-2.5 rounded-lg"
+        <div class="font-mono text-[14px] tracking-[4px] mb-1" style="color:#a0ff00;">WHATSAPP_SUPPORT</div>
+        <h3 class="font-display font-bold text-sl text-star-white mb-3">WhatsApp / Phone</h3>
+        <div class="font-mono text-xl px-3 py-2.5 rounded-lg"
           style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.35);">
           <!-- ↓ REPLACE WITH REAL NUMBER -->
-          +91 XXXXX XXXXX
+          +91 7349097923
         </div>
         <p class="font-body text-xs text-white/35 mt-3 leading-relaxed">
           Available on event day for urgent support and real-time help.
@@ -824,15 +824,16 @@
           style="background:rgba(255,170,0,0.09); border:1px solid rgba(255,170,0,0.22);">📍</div>
         <div class="font-mono text-[9px] tracking-[4px] mb-1" style="color:#ffaa00;">VENUE_COORDINATES</div>
         <h3 class="font-display font-bold text-sm text-star-white mb-3">Venue</h3>
-        <div class="font-mono text-xs px-3 py-2.5 rounded-lg leading-relaxed"
+        <div class="font-mono text-[18px] px-3 py-2.5 rounded-lg leading-relaxed"
           style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.35);">
           <!-- ↓ REPLACE WITH REAL VENUE -->
-          College / Venue Name<br/>
-          Department, City — PIN
+           Auditorium <br>
+          Alva's Institute of Engineering and Technology<br/>
+          Mijar, Moodbidire
         </div>
-        <p class="font-body text-xs text-white/35 mt-3 leading-relaxed">
+        <!-- <p class="font-body text-xs text-white/35 mt-3 leading-relaxed">
           Online participation is also available for remote teams.
-        </p>
+        </p> -->
       </div>
 
       <!-- Event Coordinators -->
@@ -844,15 +845,19 @@
         <h3 class="font-display font-bold text-sm text-star-white mb-4">Organising Team</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {#each [
-            { role: 'Event Lead',        name: 'Your Name Here',    phone: '+91 XXXXX XXXXX' },
-            { role: 'Technical Lead',    name: 'Your Name Here',    phone: '+91 XXXXX XXXXX' },
-            { role: 'Registration Lead', name: 'Your Name Here',    phone: '+91 XXXXX XXXXX' },
-            { role: 'Media & Outreach',  name: 'Your Name Here',    phone: '+91 XXXXX XXXXX' },
+            { role: 'Event Lead',        name: 'Nandhishwar E N',    phone: '+91 8050945774' },
+            { role: 'Technical Lead',    name: 'Santhosh Gowda ',    phone: '+91 7349097923' },
+            { role: 'Technical Lead',    name: 'Nishmal ',    phone: '+91 8904315326' },
+            { role: 'Registration Lead', name: 'Karthik Gowda',    phone: '+91 6362886325' },
+            { role: 'Registration Lead', name: 'Amith',    phone: '+91 9380485293' },
+            { role: 'Media & Outreach',  name: 'Sathwik',    phone: '+91 7204211342' },
+            { role: 'Media & Outreach',  name: 'Vaani',    phone: '+91 9482100118' },
+            { role: 'Media & Outreach',  name: 'Shreya K P',    phone: '+91 9108571830' },
           ] as coord}
             <div class="px-4 py-3 rounded-xl" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);">
-              <div class="font-mono text-[9px] tracking-widest mb-1" style="color:#00d4ff;">{coord.role}</div>
-              <div class="font-display font-bold text-xs text-star-white mb-1">{coord.name}</div>
-              <div class="font-mono text-[10px] text-white/35">{coord.phone}</div>
+              <div class="font-mono text-[20px] tracking-widest mb-1" style="color:#00d4ff;">{coord.role}</div>
+              <div class="font-display font-bold text-[16px] text-star-white mb-1">{coord.name}</div>
+              <div class="font-mono text-[14px] text-white/35">{coord.phone}</div>
             </div>
           {/each}
         </div>

@@ -13,10 +13,12 @@
   let paymentPreview  = null;
   let paymentFileName = '';
 
-  let errors      = {};
-  let serverError = '';
-  let submitted   = false;
-  let loading     = false;
+  let errors          = {};
+  let serverError     = '';
+  let submitted       = false;
+  let loading         = false;
+  let agreedToRules   = false;
+  let submitAttempted = false;
 
   const API_URL = import.meta.env.VITE_API_URL || 'https://cyber-siege-backend.vercel.app';
   const MAX_TEAMMATES = 10;
@@ -96,7 +98,9 @@
 
   // ── Submit ───────────────────────────────────────────────────────────────────
   async function handleSubmit() {
+    submitAttempted = true;
     serverError = '';
+    if (!agreedToRules) return;
     if (!validate()) {
       await tick();
       const el = document.querySelector('[data-error]');
@@ -381,7 +385,7 @@
               </div>
               <div class="flex items-center gap-2">
                 <span class="font-display font-bold text-lg text-green-400">₹200</span>
-                <span class="font-mono text-[15px] text-white/35 tracking-wide">per person</span>
+                <span class="font-mono text-[10px] text-white/35 tracking-wide">per person</span>
               </div>
             </div>
 
@@ -415,7 +419,7 @@
 
                 <!-- Instructions -->
                 <div class="flex-1 space-y-3">
-                  <div class="font-display font-bold text-sx text-star-white">How to Pay</div>
+                  <div class="font-display font-bold text-sm text-star-white">How to Pay</div>
                   <div class="space-y-2">
                     {#each [
                       ['01', 'Scan the QR code with any UPI app (GPay, PhonePe, Paytm, etc.)'],
@@ -425,7 +429,7 @@
                     ] as [n, step]}
                       <div class="flex items-start gap-3">
                         <span class="font-mono text-[9px] text-green-400/60 shrink-0 mt-0.5 w-4">{n}</span>
-                        <span class="font-body text-xm text-white/50 leading-relaxed">{step}</span>
+                        <span class="font-body text-xs text-white/50 leading-relaxed">{step}</span>
                       </div>
                     {/each}
                   </div>
@@ -433,7 +437,7 @@
                     <svg class="w-3 h-3 text-green-400/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                     </svg>
-                    <span class="font-mono font-bold text-[14px] text-white/80 tracking-wide">Payments verified before event access</span>
+                    <span class="font-mono text-[9px] text-white/30 tracking-wide">Payments verified before event access</span>
                   </div>
                 </div>
               </div>
@@ -441,7 +445,7 @@
 
             <!-- Screenshot upload -->
             <div data-error={errors.paymentScreenshot ? true : undefined}>
-              <label class="font-mono text-[15px] text-white/40 tracking-widest mb-3 block" for="paymentScreenshot">
+              <label class="font-mono text-[10px] text-white/40 tracking-widest mb-3 block" for="paymentScreenshot">
                 › PAYMENT_SCREENSHOT <span class="text-neon-violet">*</span>
                 <span class="text-white/20 ml-2">JPEG / PNG / WebP · max 5MB</span>
               </label>
@@ -501,13 +505,50 @@
 
           <!-- Disclaimer + Submit -->
           <div class="pt-8 border-t border-white/[0.06] mt-8">
-            <p class="font-mono text-[14px] text-white/20 leading-relaxed mb-5">
+            <p class="font-mono text-[10px] text-white/20 leading-relaxed mb-5">
               // By submitting, you confirm that payment has been made and all information provided is accurate.
               // All registrations are subject to verification.
             </p>
 
+            <!-- Rules agreement checkbox -->
+            <label class="flex items-start gap-3 mb-2 cursor-pointer group">
+              <div class="relative mt-0.5 shrink-0 w-5 h-5">
+                <input
+                  type="checkbox"
+                  bind:checked={agreedToRules}
+                  class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 m-0"
+                />
+                <div class="w-5 h-5 rounded border transition-all duration-200 flex items-center justify-center pointer-events-none
+                            {agreedToRules ? 'border-neon-cyan bg-neon-cyan/15' : 'border-white/25 bg-white/[0.04] group-hover:border-white/45'}">
+                  {#if agreedToRules}
+                    <svg class="w-3 h-3 text-neon-cyan" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 6l3 3 5-5"/>
+                    </svg>
+                  {/if}
+                </div>
+              </div>
+              <span class="font-mono text-[11px] text-white/45 leading-relaxed group-hover:text-white/60 transition-colors select-none">
+                I have read and agree to the
+                <a href="/#rules" target="_blank"
+                  class="text-neon-cyan underline underline-offset-2 hover:text-white transition-colors"
+                  on:click|stopPropagation>
+                  Rules &amp; Guidelines
+                </a>
+                of Cyber Siege CTF. I understand that violations may result in disqualification without refund.
+              </span>
+            </label>
+
+            {#if submitAttempted && !agreedToRules}
+              <p class="font-mono text-[10px] text-red-400/80 mt-1 mb-4 flex items-center gap-1.5">
+                <span>✕</span> You must agree to the rules before registering
+              </p>
+            {:else}
+              <div class="mb-4"></div>
+            {/if}
+
             <button type="submit"
-              class="btn-primary rounded-sm w-full flex items-center justify-center gap-3 py-5"
+              class="btn-primary rounded-sm w-full flex items-center justify-center gap-3 py-5 transition-opacity duration-300"
+              style="opacity: {agreedToRules ? '1' : '0.45'};"
               disabled={loading}>
               {#if loading}
                 <svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">

@@ -5,7 +5,9 @@
   const links = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/#about' },
-    { label: 'Challenges', href: '/#challenges' },
+     { label: 'Challenges', href: '/#challenges' },
+      { label: 'Rules & Guidelines', href: '/#rules' },
+    { label: 'Contact Team', href: '/#contact' },
     { label: 'Register', href: '/register' },
   ];
 </script>
