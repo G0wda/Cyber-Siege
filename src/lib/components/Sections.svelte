@@ -1,4 +1,5 @@
 <script>
+  const total_chall = "50+";
   // ── Challenge domain data (Section One) ─────────────────────────────────────
   const domains = [
     {
@@ -37,24 +38,24 @@
       count: 6, maxPts: 400,
       tags: ['LSB', 'DCT', 'Audio', 'Video', 'Metadata', 'DNA'],
     },
-    {
-      id: 'ai', label: 'AI SEC', title: 'AI Security',
-      color: '#ff00aa', glow: 'rgba(255,0,170,0.15)', border: 'rgba(255,0,170,0.25)',
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="19" cy="5" r="3"/></svg>`,
-      desc: 'Attack AI/ML systems — adversarial examples, model inversion, prompt injection, jailbreaks.',
-      difficulty: 'Medium → Expert', diffLevel: 4,
-      count: 5, maxPts: 1000,
-      tags: ['LLM Jailbreak', 'Prompt Injection', 'Adversarial ML', 'Model Theft'],
-    },
-    {
-      id: 'iot', label: 'IOT', title: 'IoT Security',
-      color: '#ffaa00', glow: 'rgba(255,170,0,0.15)', border: 'rgba(255,170,0,0.25)',
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/><circle cx="12" cy="10" r="3"/></svg>`,
-      desc: 'Hack embedded devices, firmware, and protocols — MQTT, BLE, Zigbee, custom hardware.',
-      difficulty: 'Medium → Expert', diffLevel: 4,
-      count: 5, maxPts: 900,
-      tags: ['MQTT', 'BLE', 'Firmware', 'UART', 'Zigbee', 'JTAG'],
-    },
+    // {
+    //   id: 'ai', label: 'AI SEC', title: 'AI Security',
+    //   color: '#ff00aa', glow: 'rgba(255,0,170,0.15)', border: 'rgba(255,0,170,0.25)',
+    //   icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="19" cy="5" r="3"/></svg>`,
+    //   desc: 'Attack AI/ML systems — adversarial examples, model inversion, prompt injection, jailbreaks.',
+    //   difficulty: 'Medium → Expert', diffLevel: 4,
+    //   count: 5, maxPts: 1000,
+    //   tags: ['LLM Jailbreak', 'Prompt Injection', 'Adversarial ML', 'Model Theft'],
+    // },
+    // {
+    //   id: 'iot', label: 'IOT', title: 'IoT Security',
+    //   color: '#ffaa00', glow: 'rgba(255,170,0,0.15)', border: 'rgba(255,170,0,0.25)',
+    //   icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/><circle cx="12" cy="10" r="3"/></svg>`,
+    //   desc: 'Hack embedded devices, firmware, and protocols — MQTT, BLE, Zigbee, custom hardware.',
+    //   difficulty: 'Medium → Expert', diffLevel: 4,
+    //   count: 5, maxPts: 900,
+    //   tags: ['MQTT', 'BLE', 'Firmware', 'UART', 'Zigbee', 'JTAG'],
+    // },
     {
       id: 'forensics', label: 'FORENSICS', title: 'Digital Forensics',
       color: '#00d4ff', glow: 'rgba(0,212,255,0.15)', border: 'rgba(0,212,255,0.25)',
@@ -94,7 +95,7 @@
   // ── Placeholder sections (leaderboard + sponsors only) ──────────────────────
   const otherSections = [
     // { id: 'section-two',   num: '03', label: 'LEADERBOARD', title: 'Section Two',   icon: '🌌', color: '#bf00ff' },
-    { id: 'section-three', num: '03', label: 'SPONSORS',    title: 'Section Three', icon: '🔐', color: '#0066ff' },
+    { id: 'section-three', num: '02', label: 'SPONSORS',    title: 'Section Three', icon: '🔐', color: '#0066ff' },
   ];
 
   // ── Resources data ───────────────────────────────────────────────────────────
@@ -209,7 +210,7 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section label -->
-    <div class="font-mono text-xl text-neon-cyan tracking-widest mb-10">// 02_CHALLENGES</div>
+    <div class="font-mono text-xl text-neon-cyan tracking-widest mb-10">// 01_CHALLENGES</div>
 
     <!-- Header -->
     <div class="text-center mb-16">
@@ -226,7 +227,7 @@
 
     <!-- Stats row -->
     <div class="flex flex-wrap justify-center gap-4 mb-14">
-      {#each [[totalChallenges, 'Challenges'], [domains.length, 'Domains'], ['48h', 'Duration'], ['$10K', 'Prize Pool']] as [val, lbl]}
+      {#each [[total_chall, 'Challenges'], [domains.length, 'Domains'], ['3k+', 'points']] as [val, lbl]}
         <div class="glass-card text-center px-6 py-4 min-w-[100px]" style="border:1px solid rgba(0,245,255,0.1);">
           <div class="font-display font-bold text-2xl text-neon-cyan">{val}</div>
           <div class="font-mono text-[10px] text-white/35 tracking-widest mt-1">{lbl}</div>
@@ -284,10 +285,10 @@
                   <h3 class="font-display font-bold text-sm text-star-white leading-tight">{d.title}</h3>
                 </div>
               </div>
-              <div class="text-center px-2.5 py-1 rounded-lg shrink-0" style="background:{d.glow}; border:1px solid {d.border};">
+              <!-- <div class="text-center px-2.5 py-1 rounded-lg shrink-0" style="background:{d.glow}; border:1px solid {d.border};">
                 <div class="font-display font-bold text-lg leading-none" style="color:{d.color}">{d.count}</div>
                 <div class="font-mono text-[7px] text-white/30 tracking-wider mt-0.5">CHALLS</div>
-              </div>
+              </div> -->
             </div>
 
             <!-- Description -->
@@ -335,7 +336,7 @@
 <!-- ══════════════════════════════════════════════════════════════════════════
      SECTIONS TWO, THREE, FOUR — Coming Soon placeholders
 ══════════════════════════════════════════════════════════════════════════ -->
-{#each otherSections as sec, i}
+<!-- {#each otherSections as sec, i}
   <section id={sec.id} class="relative py-20 md:py-28 overflow-hidden">
     <div class="absolute inset-0 z-0 pointer-events-none"
       style="background: radial-gradient(ellipse at {i % 2 === 0 ? '80%' : '20%'} 50%, {sec.color}11 0%, transparent 60%);">
@@ -374,7 +375,7 @@
       </div>
     </div>
   </section>
-{/each}
+{/each} -->
 
 
 <!-- ══════════════════════════════════════════════════════════════════════════
@@ -398,7 +399,7 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Section label -->
-    <div class="font-mono text-xl tracking-widest mb-10" style="color:#ff006e;">// 04_RESOURCES</div>
+    <div class="font-mono text-xl tracking-widest mb-10" style="color:#ff006e;">// 02_RESOURCES</div>
 
     <!-- Header -->
     <div class="text-center mb-20">
@@ -579,7 +580,7 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Header -->
-    <div class="font-mono text-xl tracking-widest mb-10" style="color:#0066ff;">// 05_RULES_AND_GUIDELINES</div>
+    <div class="font-mono text-xl tracking-widest mb-10" style="color:#0066ff;">// 03_RULES_AND_GUIDELINES</div>
     <div class="text-center mb-16">
       <h2 class="font-display font-black leading-none mb-3">
         <span class="text-5xl md:text-6xl lg:text-7xl" style="background:linear-gradient(135deg,#0066ff,#00f5ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">RULES &</span>
@@ -608,9 +609,9 @@
         <ul class="space-y-3">
           {#each [
             'All participants must register before the deadline. No on-the-spot registration will be accepted.',
-            'Teams may consist of 1 to 5 members. Solo participation is permitted.',
+            'Teams may consist of 1 to 4 members. Solo participation is permitted.',
             'Each participant may only be a member of one team. Cross-team participation is not allowed.',
-            'Participants must be students or working professionals — open to all skill levels.',
+            'Participants must be students from any branch or year — open to all skill levels.',
             'Treat all participants, organizers, and volunteers with respect at all times.',
             'Any form of harassment, offensive language, or discriminatory behavior will lead to immediate disqualification.',
           ] as rule}
@@ -744,7 +745,7 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Header -->
-    <div class="font-mono text-xl tracking-widest mb-10" style="color:#ff006e;">// 06_CONTACT_DETAILS</div>
+    <div class="font-mono text-xl tracking-widest mb-10" style="color:#ff006e;">// 04_CONTACT_DETAILS</div>
     <div class="text-center mb-16">
       <h2 class="font-display font-black leading-none mb-3">
         <span class="text-5xl md:text-6xl lg:text-7xl" style="background:linear-gradient(135deg,#ff006e,#bf00ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">CONTACT</span>
@@ -794,15 +795,15 @@
         </p>
       </div>
 
-      <!-- Instagram / Social -->
-      <div class="glass-card p-6 group hover:-translate-y-1 transition-all duration-300"
+     
+      <!-- <div class="glass-card p-6 group hover:-translate-y-1 transition-all duration-300"
         style="border:1px solid rgba(191,0,255,0.18);">
         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-4"
           style="background:rgba(191,0,255,0.1); border:1px solid rgba(191,0,255,0.25);">🌐</div>
-        <div class="font-mono text-[9px] tracking-[4px] mb-1" style="color:#bf00ff;">SOCIAL_CHANNELS</div>
+        <div class="font-mono text-[14px] tracking-[4px] mb-1" style="color:#bf00ff;">SOCIAL_CHANNELS</div>
         <h3 class="font-display font-bold text-sm text-star-white mb-3">Follow Us</h3>
         <div class="space-y-2">
-          <!-- ↓ REPLACE WITH REAL HANDLES -->
+       
           {#each [
             ['Instagram', '@cybersiegectf'],
             ['LinkedIn',  'Cyber Siege CTF'],
@@ -815,14 +816,14 @@
             </div>
           {/each}
         </div>
-      </div>
+      </div> -->
 
       <!-- Venue / Location -->
       <div class="glass-card p-6 group hover:-translate-y-1 transition-all duration-300"
         style="border:1px solid rgba(255,170,0,0.18);">
         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-4"
           style="background:rgba(255,170,0,0.09); border:1px solid rgba(255,170,0,0.22);">📍</div>
-        <div class="font-mono text-[9px] tracking-[4px] mb-1" style="color:#ffaa00;">VENUE_COORDINATES</div>
+        <div class="font-mono text-[14px] tracking-[4px] mb-1" style="color:#ffaa00;">VENUE_COORDINATES</div>
         <h3 class="font-display font-bold text-sm text-star-white mb-3">Venue</h3>
         <div class="font-mono text-[18px] px-3 py-2.5 rounded-lg leading-relaxed"
           style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.35);">
@@ -841,18 +842,19 @@
         style="border:1px solid rgba(0,212,255,0.18);">
         <div class="w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-4"
           style="background:rgba(0,212,255,0.09); border:1px solid rgba(0,212,255,0.22);">👥</div>
-        <div class="font-mono text-[9px] tracking-[4px] mb-1" style="color:#00d4ff;">EVENT_COORDINATORS</div>
+        <div class="font-mono text-[16px] tracking-[4px] mb-1" style="color:#00d4ff;">EVENT_COORDINATORS</div>
         <h3 class="font-display font-bold text-sm text-star-white mb-4">Organising Team</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {#each [
             { role: 'Event Lead',        name: 'Nandhishwar E N',    phone: '+91 8050945774' },
+            { role: 'Event Lead',        name: 'Harshavardhan S',    phone: '+91 7022758459' },
             { role: 'Technical Lead',    name: 'Santhosh Gowda ',    phone: '+91 7349097923' },
             { role: 'Technical Lead',    name: 'Nishmal ',    phone: '+91 8904315326' },
             { role: 'Registration Lead', name: 'Karthik Gowda',    phone: '+91 6362886325' },
             { role: 'Registration Lead', name: 'Amith',    phone: '+91 9380485293' },
             { role: 'Media & Outreach',  name: 'Sathwik',    phone: '+91 7204211342' },
-            { role: 'Media & Outreach',  name: 'Vaani',    phone: '+91 9482100118' },
             { role: 'Media & Outreach',  name: 'Shreya K P',    phone: '+91 9108571830' },
+            { role: 'Media & Outreach',  name: 'Vani Veda Sri',    phone: '+91 9482100118' },
           ] as coord}
             <div class="px-4 py-3 rounded-xl" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);">
               <div class="font-mono text-[20px] tracking-widest mb-1" style="color:#00d4ff;">{coord.role}</div>
@@ -866,10 +868,10 @@
     </div>
 
     <!-- ── Response time note ──────────────────────────────────────────────── -->
-    <div class="glass-card px-6 py-5 flex items-center gap-4"
-      style="border:1px solid rgba(255,0,110,0.14); max-width:600px; margin:0 auto;">
+    <div class="glass-card px-6 py-5 flex items-center gap-"
+      style="border:1px solid rgba(255,0,110,0.14); max-width:1200px; margin:0 auto;">
       <div class="w-2 h-2 rounded-full animate-pulse shrink-0" style="background:#ff006e;"></div>
-      <p class="font-mono text-xs text-white/35 leading-relaxed">
+      <p class="font-mono text-xl text-white/35 leading-relaxed">
         // Response time is typically within 24 hours. For urgent issues on event day, use WhatsApp or phone.
       </p>
     </div>

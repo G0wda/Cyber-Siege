@@ -7,18 +7,18 @@
     },
     {
       icon: '🌐',
-      title: 'Global Competition',
+      title: 'National Competition',
       desc: 'Compete with hackers and security researchers from across the galaxy. Solo or in teams of up to 4.',
     },
     {
       icon: '🏆',
       title: 'Massive Prizes',
-      desc: 'Top teams win cash prizes, internship opportunities, and exclusive cybersecurity swag.',
+      desc: 'Top teams win cash prizes, and exclusive cybersecurity swag.',
     },
     {
       icon: '🔮',
       title: 'Real-World Scenarios',
-      desc: 'Challenges designed by industry experts to mirror actual penetration testing scenarios.',
+      desc: 'Challenges designed to mirror actual penetration testing scenarios.',
     },
   ];
 </script>
@@ -33,9 +33,8 @@
       <h2 class="section-title">What is Cyber Siege CTF?</h2>
       <div class="w-24 h-px mx-auto mb-8" style="background: linear-gradient(90deg, transparent, #00f5ff, transparent);"></div>
       <p class="font-body text-white/60 max-w-3xl mx-auto text-lg leading-relaxed">
-        Cyber Siege CTF is an elite 48-hour Capture The Flag competition designed for cybersecurity enthusiasts, 
-        researchers, and professional hackers. Set in a deep-space command center aesthetic, it challenges 
-        participants to solve complex security puzzles across multiple domains.
+        Cyber Siege CTF is an elite 24-hour Capture The Flag competition designed for Studens, Cybersecurity enthusiasts, and 
+        researchers. Set in a deep-space command center aesthetic, it challenges participants to solve complex security puzzles across multiple domains.
       </p>
     </div>
 

@@ -7,10 +7,10 @@
   ];
 
   const links = [
-    { label: 'Rules', href: '#' },
-    { label: 'FAQ', href: '#' },
-    { label: 'Contact', href: '#' },
-    { label: 'Privacy', href: '#' },
+    { label: 'Rules', href: '/#rules' },
+    { label: 'FAQ', href: '/#contact' },
+    { label: 'Contact', href: '/#contact' },
+    { label: 'Privacy', href: '/#rules' },
   ];
 </script>
 

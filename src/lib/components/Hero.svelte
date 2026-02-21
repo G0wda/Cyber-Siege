@@ -46,9 +46,9 @@
   </div>
 
   <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
-    <div class="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full glass-card neon-border text-xs font-mono tracking-widest text-neon-cyan">
+    <div class="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full glass-card neon-border text-xl font-mono tracking-widest text-neon-cyan">
       <span class="w-2 h-2 rounded-full bg-neon-cyan animate-pulse"></span>
-      ANNUAL CYBERSECURITY COMPETITION · 2026
+      Deaprtment of ICB Presents
     </div>
 
     <h1 class="font-display font-black leading-none mb-6">
