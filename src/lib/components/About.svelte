@@ -30,7 +30,6 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section header -->
     <div class="text-center mb-20">
-      <div class="font-mono text-xs text-neon-cyan tracking-widest mb-4">// 01_ABOUT</div>
       <h2 class="section-title">What is Cyber Siege CTF?</h2>
       <div class="w-24 h-px mx-auto mb-8" style="background: linear-gradient(90deg, transparent, #00f5ff, transparent);"></div>
       <p class="font-body text-white/60 max-w-3xl mx-auto text-lg leading-relaxed">
@@ -60,7 +59,7 @@
         <div class="hidden md:block absolute top-8 left-1/3 right-1/3 h-px" style="background: linear-gradient(90deg, #00f5ff, #bf00ff);"></div>
 
         {#each [['01', 'Register', 'Sign up solo or form a team of up to 4 members before the deadline.'],
-                ['02', 'Compete', '48 hours of intense hacking across 50+ challenges in various categories.'],
+                ['02', 'Compete', '24 hours of intense hacking across 50+ challenges in various categories.'],
                 ['03', 'Triumph', 'Capture flags, rack up points, and claim your place on the leaderboard.']] as [num, title, desc]}
           <div class="text-center relative">
             <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center font-display font-bold text-2xl text-neon-cyan"

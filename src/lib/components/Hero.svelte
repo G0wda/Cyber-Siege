@@ -92,7 +92,7 @@
     </div>
 
     <div class="flex justify-center gap-8 md:gap-16 mt-16 pt-8 border-t border-white/5">
-      {#each [['200+', 'Participants'], ['48h', 'Duration'], ['50+', 'Challenges'], ['₹25K', 'Prize Pool']] as [val, label]}
+      {#each [['200+', 'Participants'], ['24h', 'Duration'], ['50+', 'Challenges'], ['₹25K', 'Prize Pool']] as [val, label]}
         <div class="text-center">
           <div class="font-display font-bold text-xl md:text-2xl text-neon-cyan">{val}</div>
           <div class="font-body text-xs text-white/40 tracking-wider mt-1">{label}</div>

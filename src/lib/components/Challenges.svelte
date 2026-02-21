@@ -1,5 +1,4 @@
 <script>
-  // ── Challenge domain data (Section One) ─────────────────────────────────────
   const domains = [
     {
       id: 'web', label: 'WEB', title: 'Web Exploitation',
@@ -34,8 +33,7 @@
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
       desc: 'Find hidden messages in images, audio, and video. Uncover what the eye cannot see.',
       difficulty: 'Easy → Hard', diffLevel: 3,
-      // count: 6,
-      maxPts: 400,
+      count: 6, maxPts: 400,
       tags: ['LSB', 'DCT', 'Audio', 'Video', 'Metadata', 'DNA'],
     },
     // {
@@ -87,44 +85,38 @@
 
   let activeFilter = 'ALL';
   const filters = ['ALL', 'Easy', 'Medium', 'Hard', 'Expert'];
+
   $: filtered = activeFilter === 'ALL'
     ? domains
     : domains.filter(d => d.difficulty.toLowerCase().includes(activeFilter.toLowerCase()));
-  const totalChallenges = domains.reduce((s, d) => s + d.count, 0);
 
-  // ── Remaining placeholder sections ──────────────────────────────────────────
-  const otherSections = [
-    { id: 'section-three', num: '04', label: 'SPONSORS',    title: 'Section Three', icon: '🔐', color: '#0066ff' },
-    { id: 'section-four',  num: '05', label: 'RESOURCES',   title: 'Section Four',  icon: '🛸', color: '#ff006e' },
-  ];
+  const totalChallenges = domains.reduce((s, d) => s + d.count, 0);
 </script>
 
-<!-- ══════════════════════════════════════════════════════════════════════════
-     SECTION ONE — CHALLENGES (fully implemented)
-══════════════════════════════════════════════════════════════════════════ -->
-<section id="section-one" class="relative py-24 md:py-36 overflow-hidden">
+<section id="challenges" class="relative py-24 md:py-36 overflow-hidden">
 
-  <!-- Atmospheric background -->
+  <!-- Atmospheric bg -->
   <div class="absolute inset-0 z-0 pointer-events-none" style="
     background:
-      radial-gradient(ellipse at 80% 20%, rgba(0,245,255,0.05) 0%, transparent 50%),
-      radial-gradient(ellipse at 15% 80%, rgba(191,0,255,0.04) 0%, transparent 50%);
+      radial-gradient(ellipse at 20% 50%, rgba(0,245,255,0.04) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 50%, rgba(191,0,255,0.05) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 0%, rgba(10,2,30,0.6) 0%, transparent 70%);
   "></div>
 
-  <!-- Hex grid overlay -->
-  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.025]" style="
+  <!-- Hex grid -->
+  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.022]" style="
     background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52' viewBox='0 0 60 52'%3E%3Cpolygon points='30,1 59,17 59,35 30,51 1,35 1,17' fill='none' stroke='%2300f5ff' stroke-width='1'/%3E%3C/svg%3E&quot;);
     background-size: 60px 52px;
   "></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-
-    <!-- Header -->
+    <!-- ── Section header ──────────────────────────────────────────────── -->
     <div class="text-center mb-16">
-      <h2 class="font-display font-black leading-none mb-3">
-        <span class="text-gradient text-5xl md:text-6xl lg:text-7xl">CHALLENGE</span>
-        <span class="block text-white/65 text-3xl md:text-4xl tracking-[0.3em] mt-2">ARENAS</span>
+      <div class="font-mono text-xs text-neon-cyan tracking-widest mb-4">// 02_CHALLENGE_DOMAINS</div>
+      <h2 class="font-display font-black text-5xl md:text-6xl lg:text-7xl leading-none mb-3">
+        <span class="text-gradient">CHALLENGE</span>
+        <span class="block text-white/70 text-3xl md:text-4xl tracking-[0.3em] mt-2">ARENAS</span>
       </h2>
       <div class="w-32 h-px mx-auto my-6" style="background: linear-gradient(90deg,transparent,#00f5ff,#bf00ff,transparent);"></div>
       <p class="font-body text-white/50 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
@@ -133,17 +125,17 @@
       </p>
     </div>
 
-    <!-- Stats row -->
+    <!-- ── Stats row ───────────────────────────────────────────────────── -->
     <div class="flex flex-wrap justify-center gap-4 mb-14">
-      {#each [/*[totalChallenges, 'Challenges'],*/ [domains.length, 'Domains'], ['24h', 'Duration'], ['$10K', 'Prize Pool']] as [val, lbl]}
-        <div class="glass-card text-center px-6 py-4 min-w-[100px]" style="border:1px solid rgba(0,245,255,0.1);">
+      {#each [[totalChallenges, 'Total Challenges'], [domains.length, 'Domains'], ['48h', 'Duration'], ['$10K', 'Prize Pool']] as [val, lbl]}
+        <div class="glass-card text-center px-6 py-4 min-w-[110px]" style="border:1px solid rgba(0,245,255,0.1);">
           <div class="font-display font-bold text-2xl text-neon-cyan">{val}</div>
           <div class="font-mono text-[10px] text-white/35 tracking-widest mt-1">{lbl}</div>
         </div>
       {/each}
     </div>
 
-    <!-- Difficulty filters -->
+    <!-- ── Difficulty filter ────────────────────────────────────────────── -->
     <div class="flex flex-wrap justify-center gap-2 mb-12">
       {#each filters as f}
         <button
@@ -152,14 +144,14 @@
             border: 1px solid {activeFilter === f ? '#00f5ff' : 'rgba(255,255,255,0.1)'};
             background: {activeFilter === f ? '#00f5ff' : 'transparent'};
             color: {activeFilter === f ? '#02010a' : 'rgba(255,255,255,0.45)'};
-            {activeFilter === f ? 'box-shadow:0 0 20px rgba(0,245,255,0.35);font-weight:700;' : ''}
+            {activeFilter === f ? 'box-shadow: 0 0 20px rgba(0,245,255,0.35); font-weight:700;' : ''}
           "
           on:click={() => activeFilter = f}
         >{f}</button>
       {/each}
     </div>
 
-    <!-- Domain cards -->
+    <!-- ── Domain cards grid ───────────────────────────────────────────── -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {#each filtered as d, i}
         <article
@@ -172,18 +164,19 @@
             animation-delay: {i * 55}ms;
           "
         >
-          <!-- Top accent line -->
-          <div class="absolute top-0 inset-x-0 h-0.5 opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+          <!-- Top glow line -->
+          <div class="absolute top-0 inset-x-0 h-0.5 opacity-50 group-hover:opacity-100 transition-opacity duration-400"
             style="background: linear-gradient(90deg, transparent, {d.color}, transparent);"></div>
 
-          <!-- Hover glow -->
+          <!-- Hover radial glow -->
           <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
             style="background: radial-gradient(ellipse at 50% 0%, {d.glow} 0%, transparent 65%);"></div>
 
           <div class="relative p-5">
-            <!-- Card header -->
+            <!-- Header row -->
             <div class="flex items-start justify-between mb-4">
               <div class="flex items-center gap-3">
+                <!-- Icon -->
                 <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"
                   style="color:{d.color}; background:{d.glow}; border:1px solid {d.border}; box-shadow:0 0 12px {d.glow};">
                   <div class="w-5 h-5">{@html d.icon}</div>
@@ -193,34 +186,33 @@
                   <h3 class="font-display font-bold text-sm text-star-white leading-tight">{d.title}</h3>
                 </div>
               </div>
-              <!-- <div class="text-center px-2.5 py-1 rounded-lg shrink-0" style="background:{d.glow}; border:1px solid {d.border};">
+              <!-- Count badge -->
+              <div class="text-center px-2.5 py-1 rounded-lg shrink-0" style="background:{d.glow}; border:1px solid {d.border};">
                 <div class="font-display font-bold text-lg leading-none" style="color:{d.color}">{d.count}</div>
                 <div class="font-mono text-[7px] text-white/30 tracking-wider mt-0.5">CHALLS</div>
-              </div> -->
+              </div>
             </div>
 
-            <!-- Description -->
+            <!-- Desc -->
             <p class="font-body text-xs text-white/48 leading-relaxed mb-4 group-hover:text-white/62 transition-colors duration-300">{d.desc}</p>
 
             <!-- Tags -->
             <div class="flex flex-wrap gap-1.5 mb-4">
-              {#each d.tags.slice(0, 4) as tag}
+              {#each d.tags.slice(0,4) as tag}
                 <span class="font-mono text-[8px] px-2 py-0.5 rounded tracking-wide bg-white/[0.04] border border-white/[0.07] text-white/35">{tag}</span>
               {/each}
               {#if d.tags.length > 4}
-                <span class="font-mono text-[8px] px-2 py-0.5 rounded tracking-wide"
-                  style="color:{d.color}; border:1px solid {d.border}; background:{d.glow}">+{d.tags.length - 4}</span>
+                <span class="font-mono text-[8px] px-2 py-0.5 rounded tracking-wide" style="color:{d.color}; border:1px solid {d.border}; background:{d.glow}">+{d.tags.length - 4}</span>
               {/if}
             </div>
 
-            <!-- Difficulty + points footer -->
+            <!-- Footer: diff + pts -->
             <div class="flex items-center justify-between pt-3.5" style="border-top:1px solid rgba(255,255,255,0.05);">
               <div class="flex items-center gap-2">
                 <div class="flex gap-0.5">
                   {#each Array(5) as _, j}
                     <div class="w-3.5 h-1.5 rounded-full"
-                      style="background:{j < d.diffLevel ? d.color : 'rgba(255,255,255,0.08)'}; {j < d.diffLevel ? `box-shadow:0 0 4px ${d.color};` : ''}">
-                    </div>
+                      style="background:{j < d.diffLevel ? d.color : 'rgba(255,255,255,0.08)'}; {j < d.diffLevel ? `box-shadow:0 0 4px ${d.color};` : ''}"></div>
                   {/each}
                 </div>
                 <span class="font-mono text-[8px] text-white/28 tracking-wide">{d.difficulty}</span>
@@ -230,60 +222,17 @@
           </div>
         </article>
       {/each}
-
-      {#if filtered.length === 0}
-        <div class="col-span-full text-center py-16 font-mono text-white/25 text-sm tracking-widest">
-          // NO DOMAINS MATCH THIS FILTER
-        </div>
-      {/if}
     </div>
+
+    <!-- ── Empty state ─────────────────────────────────────────────────── -->
+    {#if filtered.length === 0}
+      <div class="text-center py-16 font-mono text-white/25 text-sm tracking-widest">
+        // NO DOMAINS MATCH THIS FILTER
+      </div>
+    {/if}
 
   </div>
 </section>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     SECTIONS TWO, THREE, FOUR — Coming Soon placeholders
-══════════════════════════════════════════════════════════════════════════ -->
-{#each otherSections as sec, i}
-  <section id={sec.id} class="relative py-20 md:py-28 overflow-hidden">
-    <div class="absolute inset-0 z-0 pointer-events-none"
-      style="background: radial-gradient(ellipse at {i % 2 === 0 ? '80%' : '20%'} 50%, {sec.color}11 0%, transparent 60%);">
-    </div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="font-mono text-xs tracking-widest mb-4" style="color: {sec.color}">// {sec.num}_{sec.label}</div>
-
-      <div class="glass-card p-12 md:p-20 text-center" style="border: 1px solid {sec.color}33; box-shadow: 0 0 40px {sec.color}11;">
-        <div class="text-6xl mb-6 animate-float" style="animation-delay: {i * 0.5}s">{sec.icon}</div>
-        <h2 class="font-display font-bold text-4xl md:text-5xl mb-4" style="color: {sec.color}">{sec.title}</h2>
-        <div class="w-20 h-px mx-auto mb-6" style="background: linear-gradient(90deg, transparent, {sec.color}, transparent);"></div>
-
-        <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full mb-6"
-          style="border: 1px solid {sec.color}44; background: {sec.color}11;">
-          <div class="w-2 h-2 rounded-full animate-pulse" style="background: {sec.color}"></div>
-          <span class="font-mono text-sm tracking-widest" style="color: {sec.color}">COMING SOON</span>
-        </div>
-
-        <p class="font-body text-white/40 max-w-lg mx-auto text-sm leading-relaxed">
-          This section is currently under construction. Our team is working on something extraordinary.
-          Check back soon for updates.
-        </p>
-
-        <div class="mt-8 max-w-sm mx-auto text-left glass-card p-4 border border-white/5">
-          <div class="font-mono text-xs text-white/30 space-y-1">
-            <div><span class="text-neon-cyan">$</span> loading_{sec.label.toLowerCase()}...</div>
-            <div><span class="text-white/20">// initiating sequence</span></div>
-            <div><span class="text-neon-violet">›</span> STATUS: <span style="color:{sec.color}">PENDING</span></div>
-            <div class="flex items-center gap-1">
-              <span class="text-white/20">// awaiting deployment</span>
-              <span class="animate-pulse" style="color:{sec.color}">▊</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-{/each}
 
 <style>
   @keyframes cardIn {
