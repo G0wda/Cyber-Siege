@@ -21,7 +21,7 @@
   let submitAttempted = false;
 
   const API_URL = import.meta.env.VITE_API_URL || 'https://cyber-siege-backend.vercel.app';
-  const MAX_TEAMMATES = 10;
+  const MAX_TEAMMATES = 3;
 
   // ── Reactively resize teammate name array ────────────────────────────────────
   $: {
@@ -275,7 +275,7 @@
             </div>
 
             <div class="mb-5" data-error={errors.numberOfTeammates ? true : undefined}>
-              <label class="font-mono text-[10px] text-white/40 tracking-widest mb-2 block" for="numTeammates">
+              <label class="font-mono text-[14px] text-white/40 tracking-widest mb-2 block" for="numTeammates">
                 › NUMBER_OF_TEAMMATES <span class="text-neon-violet">*</span>
                 <span class="text-white/20 ml-2">(0 – {MAX_TEAMMATES})</span>
               </label>
