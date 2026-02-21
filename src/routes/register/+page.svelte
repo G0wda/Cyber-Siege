@@ -18,8 +18,8 @@
   let submitted   = false;
   let loading     = false;
 
-  const API_URL = import.meta.env.VITE_API_URL || 'https://cyber-siege-backend.vercel.app';
-  const MAX_TEAMMATES = 3;
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const MAX_TEAMMATES = 10;
 
   // ── Reactively resize teammate name array ────────────────────────────────────
   $: {
@@ -181,7 +181,7 @@
           <div><span class="text-neon-cyan">›</span> college:   <span class="text-white/70">{collegeName}</span></div>
           <div><span class="text-neon-cyan">›</span> city:      <span class="text-white/70">{city}</span></div>
           <div><span class="text-neon-cyan">›</span> squad:     <span class="text-white/70">{numberOfTeammates} teammate{numberOfTeammates !== 1 ? 's' : ''}</span></div>
-          <div><span class="text-neon-cyan">›</span> payment:   <span class="text-green-400">Check your email for confirmation mail</span></div>
+          <div><span class="text-neon-cyan">›</span> payment:   <span class="text-green-400">✓ verified</span></div>
           <div class="pt-1"><span class="text-neon-violet">›</span> status: <span class="text-neon-cyan">ACTIVE ▊</span></div>
         </div>
 
@@ -198,7 +198,7 @@
         <div class="font-mono text-xs text-neon-cyan tracking-widest mb-3">// SECURE_REGISTRATION_PORTAL</div>
         <h1 class="font-display font-bold text-4xl md:text-5xl text-gradient mb-3">Join Cyber Siege CTF</h1>
         <div class="w-20 h-px mx-auto mb-4" style="background:linear-gradient(90deg,transparent,#00f5ff,transparent)"></div>
-        <p class="font-body text-white/45 text-xs">Fill in your squad details to secure your spot in the arena.</p>
+        <p class="font-body text-white/45 text-sm">Fill in your squad details to secure your spot in the arena.</p>
       </div>
 
       <!-- Form card -->
@@ -389,7 +389,7 @@
             </div>
           </div>
 
-          <!-- ── SECTION 4: Payment Screenshot ────────────────────────────── -->
+          <!-- ── SECTION 4: Payment ────────────────────────────────────────── -->
           <div class="pt-6">
             <div class="flex items-center gap-3 mb-5">
               <div class="w-5 h-5 rounded flex items-center justify-center text-[10px] font-display font-bold text-green-400"
@@ -398,6 +398,65 @@
               <div class="flex-1 h-px" style="background:linear-gradient(90deg,rgba(74,222,128,0.2),transparent)"></div>
             </div>
 
+            <!-- ── QR Code placeholder ──────────────────────────────────────── -->
+            <div class="rounded-2xl overflow-hidden mb-6"
+              style="border:1px solid rgba(74,222,128,0.2); background:rgba(74,222,128,0.03);">
+
+              <!-- Header bar -->
+              <div class="flex items-center justify-between px-4 py-2.5"
+                style="background:rgba(74,222,128,0.07); border-bottom:1px solid rgba(74,222,128,0.12);">
+                <div class="flex items-center gap-2">
+                  <div class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
+                  <span class="font-mono text-[10px] text-green-400 tracking-widest">SCAN_TO_PAY</span>
+                </div>
+                <span class="font-mono text-[9px] text-white/25 tracking-wider">ENTRY FEE · ₹XXX</span>
+              </div>
+
+              <div class="flex flex-col sm:flex-row items-center gap-6 p-6">
+
+                <!-- QR box — replace src with your actual QR image -->
+               <div class="relative shrink-0 group">
+                <div class="w-64 h-64 rounded-xl flex items-center justify-center overflow-hidden relative"
+                  style="border:2px solid rgba(74,222,128,0.4); background: white; box-shadow:0 0 24px rgba(74,222,128,0.15);">
+
+                  <img src="./assets/payment.jpeg" 
+                      alt="Payment QR" 
+                      class="w-full h-full object-cover p-0" />
+
+                  <div class="absolute top-1.5 left-1.5 w-6 h-6 border-t-4 border-l-4 rounded-tl border-green-500"></div>
+                  <div class="absolute top-1.5 right-1.5 w-6 h-6 border-t-4 border-r-4 rounded-tr border-green-500"></div>
+                  <div class="absolute bottom-1.5 left-1.5 w-6 h-6 border-b-4 border-l-4 rounded-bl border-green-500"></div>
+                  <div class="absolute bottom-1.5 right-1.5 w-6 h-6 border-b-4 border-r-4 rounded-br border-green-500"></div>
+                  
+                  <div class="absolute inset-x-0 h-[3px] bg-green-400 shadow-[0_0_15px_#4ade80] animate-scan-slow opacity-80 z-10"></div>
+                </div>
+              </div>
+
+                <!-- Payment instructions -->
+                <div class="flex-1 space-y-3">
+                  <div class="font-display font-bold text-sm text-star-white">How to Pay</div>
+                  <div class="space-y-2">
+                    {#each [
+                      ['01', 'Scan the QR code with any UPI app (GPay, PhonePe, Paytm, etc.)'],
+                      ['02', 'Pay the entry fee and note your transaction ID'],
+                      ['03', 'Take a screenshot of the payment confirmation'],
+                      ['04', 'Upload the screenshot below to complete registration'],
+                    ] as [n, step]}
+                      <div class="flex items-start gap-3">
+                        <span class="font-mono text-[9px] text-green-400/60 shrink-0 mt-0.5 w-4">{n}</span>
+                        <span class="font-body text-xs text-white/50 leading-relaxed">{step}</span>
+                      </div>
+                    {/each}
+                  </div>
+                  <div class="flex items-center gap-2 pt-1">
+                    <svg class="w-3 h-3 text-green-400/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span class="font-mono text-[9px] text-white/30 tracking-wide">Payments verified before event access</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Screenshot upload ──────────────────────────────────────────── -->
             <div data-error={errors.paymentScreenshot ? true : undefined}>
               <label class="font-mono text-[10px] text-white/40 tracking-widest mb-3 block" for="paymentScreenshot">
                 › PAYMENT_SCREENSHOT <span class="text-neon-violet">*</span>
@@ -495,3 +554,19 @@
     </div>
   {/if}
 </section>
+<style>
+  /* ... your existing styles ... */
+
+  @keyframes scan-slow {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    50% { top: 100%; opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 0%; opacity: 0; }
+  }
+
+  .animate-scan-slow {
+    position: absolute;
+    animation: scan-slow 6s ease-in-out infinite;
+  }
+</style>
