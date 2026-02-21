@@ -135,7 +135,7 @@
 
     <!-- Stats row -->
     <div class="flex flex-wrap justify-center gap-4 mb-14">
-      {#each [/*[totalChallenges, 'Challenges'],*/ [domains.length, 'Domains'], ['24h', 'Duration'], ['$10K', 'Prize Pool']] as [val, lbl]}
+      {#each [/*[totalChallenges, 'Challenges'],*/ [domains.length, 'Domains'], ['24h', 'Duration'],['3k+ points']] as [val, lbl]}
         <div class="glass-card text-center px-6 py-4 min-w-[100px]" style="border:1px solid rgba(0,245,255,0.1);">
           <div class="font-display font-bold text-2xl text-neon-cyan">{val}</div>
           <div class="font-mono text-[10px] text-white/35 tracking-widest mt-1">{lbl}</div>
