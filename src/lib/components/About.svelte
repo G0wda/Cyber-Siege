@@ -33,7 +33,7 @@
       <h2 class="section-title">What is Cyber Siege CTF?</h2>
       <div class="w-24 h-px mx-auto mb-8" style="background: linear-gradient(90deg, transparent, #00f5ff, transparent);"></div>
       <p class="font-body text-white/60 max-w-3xl mx-auto text-lg leading-relaxed">
-        Cyber Siege CTF is an elite 24-hour Capture The Flag competition designed for Studens, Cybersecurity enthusiasts, and 
+        Cyber Siege CTF is an elite 24-hour Capture The Flag competition designed for Students, Cybersecurity enthusiasts, and 
         researchers. Set in a deep-space command center aesthetic, it challenges participants to solve complex security puzzles across multiple domains.
       </p>
     </div>
