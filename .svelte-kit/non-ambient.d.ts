@@ -37,6 +37,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/" | "/register";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/assets/payment.jpeg" | string & {};
+		Asset(): "/assets/favicon.jpeg" | "/assets/payment.jpeg" | string & {};
 	}
 }
