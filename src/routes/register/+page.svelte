@@ -399,7 +399,7 @@
                   <div class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
                   <span class="font-mono text-[10px] text-green-400 tracking-widest">SCAN_TO_PAY</span>
                 </div>
-                <span class="font-mono text-[9px] text-white/25 tracking-wider">₹200 × members in team</span>
+                <!-- <span class="font-mono text-[18px] text-white/25 tracking-wider">₹200 × members in team</span> -->
               </div>
 
               <div class="flex flex-col sm:flex-row items-center gap-6 p-6">
