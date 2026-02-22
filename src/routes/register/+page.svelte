@@ -385,7 +385,7 @@
               </div>
               <div class="flex items-center gap-2">
                 <span class="font-display font-bold text-lg text-green-400">₹200</span>
-                <span class="font-mono text-[10px] text-white/35 tracking-wide">per person</span>
+                <span class="font-mono text-[16px] text-white/35 tracking-wide">per person</span>
               </div>
             </div>
 
