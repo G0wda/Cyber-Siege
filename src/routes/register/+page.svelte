@@ -177,7 +177,7 @@
           <div><span class="text-neon-cyan">›</span> college:   <span class="text-white/70">{collegeName}</span></div>
           <div><span class="text-neon-cyan">›</span> city:      <span class="text-white/70">{city}</span></div>
           <div><span class="text-neon-cyan">›</span> squad:     <span class="text-white/70">{numberOfTeammates} teammate{numberOfTeammates !== 1 ? 's' : ''}</span></div>
-          <div><span class="text-neon-cyan">›</span> payment:   <span class="text-green-400">✓ verified</span></div>
+          <div><span class="text-neon-cyan">›</span> payment:   <span class="text-green-400">Your comformation mail on the way</span></div>
           <div class="pt-1"><span class="text-neon-violet">›</span> status: <span class="text-neon-cyan">ACTIVE ▊</span></div>
         </div>
         <a href="/" class="btn-primary rounded-sm text-xs inline-block">← Return to Base</a>
