@@ -185,6 +185,7 @@
     </div>
 
   {:else}
+  
     <div class="relative z-10 max-w-2xl mx-auto px-4">
 
       <div class="text-center mb-10">
