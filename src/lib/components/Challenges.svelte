@@ -139,7 +139,7 @@
     <div class="flex flex-wrap justify-center gap-2 mb-12">
       {#each filters as f}
         <button
-          class="px-4 py-2 rounded-full font-mono text-xs tracking-widest transition-all duration-300 cursor-pointer"
+          class="px-4 py-2 rounded-full font-mono text-xl tracking-widest transition-all duration-300 cursor-pointer"
           style="
             border: 1px solid {activeFilter === f ? '#00f5ff' : 'rgba(255,255,255,0.1)'};
             background: {activeFilter === f ? '#00f5ff' : 'transparent'};
@@ -182,8 +182,8 @@
                   <div class="w-5 h-5">{@html d.icon}</div>
                 </div>
                 <div>
-                  <div class="font-mono text-[9px] tracking-[4px] mb-0.5" style="color:{d.color}">{d.label}</div>
-                  <h3 class="font-display font-bold text-sm text-star-white leading-tight">{d.title}</h3>
+                  <div class="font-mono text-[24px] tracking-[4px] mb-0.5" style="color:{d.color}">{d.label}</div>
+                  <h3 class="font-display font-bold text-2xl text-star-white leading-tight">{d.title}</h3>
                 </div>
               </div>
               <!-- Count badge -->
@@ -194,7 +194,7 @@
             </div>
 
             <!-- Desc -->
-            <p class="font-body text-xs text-white/48 leading-relaxed mb-4 group-hover:text-white/62 transition-colors duration-300">{d.desc}</p>
+            <p class="font-body text-xl text-white/48 leading-relaxed mb-4 group-hover:text-white/62 transition-colors duration-300">{d.desc}</p>
 
             <!-- Tags -->
             <div class="flex flex-wrap gap-1.5 mb-4">

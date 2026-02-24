@@ -229,7 +229,7 @@
     <div class="flex flex-wrap justify-center gap-4 mb-14">
       {#each [[total_chall, 'Challenges'], [domains.length, 'Domains'], ['3k+', 'points']] as [val, lbl]}
         <div class="glass-card text-center px-6 py-4 min-w-[100px]" style="border:1px solid rgba(0,245,255,0.1);">
-          <div class="font-display font-bold text-2xl text-neon-cyan">{val}</div>
+          <div class="font-display font-bold text-3xl text-neon-cyan">{val}</div>
           <div class="font-mono text-[10px] text-white/35 tracking-widest mt-1">{lbl}</div>
         </div>
       {/each}
@@ -281,8 +281,8 @@
                   <div class="w-5 h-5">{@html d.icon}</div>
                 </div>
                 <div>
-                  <div class="font-mono text-[9px] tracking-[4px] mb-0.5" style="color:{d.color}">{d.label}</div>
-                  <h3 class="font-display font-bold text-sm text-star-white leading-tight">{d.title}</h3>
+                  <div class="font-mono text-[16px] tracking-[4px] mb-0.5" style="color:{d.color}">{d.label}</div>
+                  <h3 class="font-display font-bold text-xl text-star-white leading-tight">{d.title}</h3>
                 </div>
               </div>
               <!-- <div class="text-center px-2.5 py-1 rounded-lg shrink-0" style="background:{d.glow}; border:1px solid {d.border};">
@@ -292,7 +292,7 @@
             </div>
 
             <!-- Description -->
-            <p class="font-body text-xs text-white/48 leading-relaxed mb-4 group-hover:text-white/62 transition-colors duration-300">{d.desc}</p>
+            <p class="font-body text-[20px] text-white/48 leading-relaxed mb-4 group-hover:text-white/62 transition-colors duration-300">{d.desc}</p>
 
             <!-- Tags -->
             <div class="flex flex-wrap gap-1.5 mb-4">
@@ -429,7 +429,7 @@
             <!-- Category header -->
             <div class="flex items-center gap-3 mb-5 pb-4" style="border-bottom:1px solid rgba(255,255,255,0.06);">
               <div class="w-2 h-2 rounded-full" style="background:{cat.color}; box-shadow:0 0 8px {cat.color};"></div>
-              <span class="font-mono text-xs tracking-[3px]" style="color:{cat.color};">{cat.label}</span>
+              <span class="font-mono text-2xl tracking-[3px]" style="color:{cat.color};">{cat.label}</span>
             </div>
 
             <!-- Tools list -->
@@ -442,8 +442,8 @@
                   on:mouseleave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.background = 'rgba(255,255,255,0.025)'; }}
                 >
                   <div class="flex-1 min-w-0">
-                    <div class="font-display font-bold text-sm text-star-white mb-0.5">{tool.name}</div>
-                    <div class="font-body text-xs text-white/40 truncate">{tool.desc}</div>
+                    <div class="font-display font-bold text-[20px] text-star-white mb-0.5">{tool.name}</div>
+                    <div class="font-body text-[18px] text-white/40 truncate">{tool.desc}</div>
                   </div>
                   <!-- Arrow -->
                   <div class="shrink-0 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-300"
@@ -478,8 +478,8 @@
                 {cat.icon}
               </div>
               <div>
-                <div class="font-mono text-[9px] tracking-[4px] mb-0.5" style="color:{cat.color};">RESOURCES</div>
-                <div class="font-display font-bold text-sm text-star-white">{cat.category}</div>
+                <div class="font-mono text-[22px] tracking-[4px] mb-0.5" style="color:{cat.color};">RESOURCES</div>
+                <div class="font-display font-bold text-xm text-star-white">{cat.category}</div>
               </div>
             </div>
 
@@ -493,12 +493,12 @@
                   on:mouseleave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.04)'; e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
                 >
                   <div class="flex items-center justify-between gap-2">
-                    <span class="font-display font-bold text-xs text-star-white group-hover/item:text-white transition-colors">{item.name}</span>
+                    <span class="font-display font-bold text-xl text-star-white group-hover/item:text-white transition-colors">{item.name}</span>
                     <svg class="w-3 h-3 shrink-0 opacity-0 group-hover/item:opacity-100 transition-opacity" style="color:{cat.color}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                       <path d="M7 17L17 7M7 7h10v10"/>
                     </svg>
                   </div>
-                  <p class="font-body text-[10px] text-white/35 mt-0.5 leading-relaxed">{item.desc}</p>
+                  <p class="font-body text-[18px] text-white/35 mt-0.5 leading-relaxed">{item.desc}</p>
                 </a>
               {/each}
             </div>
@@ -510,7 +510,7 @@
     <!-- ── QUICK TIPS ──────────────────────────────────────────────────────── -->
     <div>
       <div class="flex items-center gap-4 mb-8">
-        <div class="font-mono text-xl tracking-[4px] text-white/40">// CTF_PLAYBOOK</div>
+        <div class="font-mono text-2xl tracking-[4px] text-white/40">// CTF_PLAYBOOK</div>
         <div class="flex-1 h-px" style="background:linear-gradient(90deg,rgba(255,0,110,0.3),transparent);"></div>
       </div>
 
@@ -523,10 +523,10 @@
             ⚡
           </div>
           <div>
-            <div class="font-mono text-[9px] tracking-[4px] mb-0.5" style="color:#ff006e;">INSIDER TIPS</div>
-            <h3 class="font-display font-bold text-lg text-star-white">Before You Compete</h3>
+            <div class="font-mono text-[14px] tracking-[4px] mb-0.5" style="color:#ff006e;">INSIDER TIPS</div>
+            <h3 class="font-display font-bold text-[22px] text-star-white">Before You Compete</h3>
           </div>
-          <div class="ml-auto font-mono text-[10px] text-white/25 hidden md:block">// {quickTips.length} tips loaded</div>
+          <div class="ml-auto font-mono text-[20px] text-white/25 hidden md:block">// {quickTips.length} tips loaded</div>
         </div>
 
         <!-- Tips grid -->
@@ -538,7 +538,7 @@
                 style="background:rgba(255,0,110,0.1); border:1px solid rgba(255,0,110,0.25); color:#ff006e;">
                 {tip.num}
               </div>
-              <p class="font-body text-sm text-white/55 leading-relaxed group-hover:text-white/75 transition-colors duration-300">
+              <p class="font-body text-[18px] text-white/55 leading-relaxed group-hover:text-white/75 transition-colors duration-300">
                 {tip.tip}
               </p>
             </div>
@@ -548,12 +548,12 @@
         <!-- Flag format reminder -->
         <div class="mt-8 pt-6 flex flex-col md:flex-row items-center justify-between gap-4"
           style="border-top:1px solid rgba(255,255,255,0.06);">
-          <div class="font-mono text-xs text-white/30">// FLAG FORMAT</div>
-          <div class="font-mono text-sm px-5 py-2.5 rounded-lg tracking-wider"
+          <div class="font-mono text-xl text-white/30">// FLAG FORMAT</div>
+          <div class="font-mono text-xm px-5 py-2.5 rounded-lg tracking-wider"
             style="background:rgba(255,0,110,0.08); border:1px solid rgba(255,0,110,0.2); color:#ff006e;">
             CS&#123;<span class="text-white/50">your_flag_here</span>&#125;
           </div>
-          <div class="font-mono text-[10px] text-white/25 text-right">case-sensitive · submit early</div>
+          <div class="font-mono text-[18px] text-white/25 text-right">case-sensitive · submit early</div>
         </div>
       </div>
     </div>

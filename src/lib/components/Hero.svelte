@@ -71,7 +71,7 @@
       </div>
     {:else}
       <div class="mb-12">
-        <p class="font-mono text-xs text-white/30 tracking-widest mb-4">// EVENT BEGINS IN</p>
+        <p class="font-mono text-2xl text-white/30 tracking-widest mb-4">// EVENT BEGINS IN</p>
         <div class="flex justify-center gap-4 md:gap-8">
           {#each [['days', countdown.days], ['hours', countdown.hours], ['mins', countdown.minutes], ['secs', countdown.seconds]] as [label, val]}
             <div class="glass-card neon-border px-4 py-4 md:px-6 md:py-5 min-w-[70px] md:min-w-[90px] text-center">
@@ -80,13 +80,13 @@
             </div>
           {/each}
         </div>
-        <p class="font-mono text-xxxs text-white/20 tracking-widest mt-4">MARCH 13, 2026 · 11:00 AM IST</p>
+        <p class="font-mono text-2xl text-white/20 tracking-widest mt-4">MARCH 13, 2026 · 11:00 AM IST</p>
       </div>
     {/if}
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <a href="/register" class="btn-primary rounded-sm text-sm">⟩ Register Now</a>
-      <a href="#about" class="px-8 py-4 font-display font-bold text-sm tracking-widest uppercase text-white/50 border border-white/20 rounded-sm hover:border-white/40 hover:text-white/80 transition-all duration-300">
+      <a href="/register" class="btn-primary  rounded-sm text-xl">⟩ Register Now</a>
+      <a href="#about" class="px-8 py-4 font-display font-bold text-xl tracking-widest uppercase text-white/50 border border-white/20 rounded-sm hover:border-white/40 hover:text-white/80 transition-all duration-300">
         Learn More ↓
       </a>
     </div>
@@ -94,7 +94,7 @@
     <div class="flex justify-center gap-8 md:gap-16 mt-16 pt-8 border-t border-white/5">
       {#each [['200+', 'Participants'], ['24h', 'Duration'], ['50+', 'Challenges'], ['₹25K', 'Prize Pool']] as [val, label]}
         <div class="text-center">
-          <div class="font-display font-bold text-xl md:text-2xl text-neon-cyan">{val}</div>
+          <div class="font-display font-bold text-2xl md:text-4xl text-neon-cyan">{val}</div>
           <div class="font-body text-xs text-white/40 tracking-wider mt-1">{label}</div>
         </div>
       {/each}

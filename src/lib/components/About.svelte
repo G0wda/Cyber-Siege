@@ -30,9 +30,9 @@
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section header -->
     <div class="text-center mb-20">
-      <h2 class="section-title">What is Cyber Siege CTF?</h2>
+      <h2 class="section-title text-6xl ">What is Cyber Siege CTF?</h2>
       <div class="w-24 h-px mx-auto mb-8" style="background: linear-gradient(90deg, transparent, #00f5ff, transparent);"></div>
-      <p class="font-body text-white/60 max-w-3xl mx-auto text-lg leading-relaxed">
+      <p class="font-body text-white/60 max-w-3xl mx-auto  text-xl leading-relaxed">
         Cyber Siege CTF is an elite 24-hour Capture The Flag competition designed for Students, Cybersecurity enthusiasts, and 
         researchers. Set in a deep-space command center aesthetic, it challenges participants to solve complex security puzzles across multiple domains.
       </p>
@@ -44,15 +44,15 @@
         <div class="glass-card neon-border p-6 hover:scale-105 transition-all duration-300 group"
           style="animation-delay: {i * 100}ms">
           <div class="text-4xl mb-4">{feat.icon}</div>
-          <h3 class="font-display font-bold text-base text-star-white mb-3 group-hover:text-neon-cyan transition-colors">{feat.title}</h3>
-          <p class="font-body text-sm text-white/50 leading-relaxed">{feat.desc}</p>
+          <h3 class="font-display font-bold text-2xl text-star-white mb-3 group-hover:text-neon-cyan transition-colors">{feat.title}</h3>
+          <p class="font-body text-xl text-white/50 leading-relaxed">{feat.desc}</p>
         </div>
       {/each}
     </div>
 
     <!-- Timeline / How it works -->
     <div class="mt-24 glass-card p-8 md:p-12" style="border: 1px solid #bf00ff33; box-shadow: 0 0 40px #bf00ff11;">
-      <h3 class="font-display font-bold text-2xl md:text-3xl text-center text-gradient mb-12">How It Works</h3>
+      <h3 class="font-display font-bold text-3xl md:text-3xl text-center text-gradient mb-12">How It Works</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
         <!-- Connector line (desktop) -->
         <div class="hidden md:block absolute top-8 left-1/3 right-1/3 h-px" style="background: linear-gradient(90deg, #00f5ff, #bf00ff);"></div>
